@@ -1,5 +1,5 @@
-﻿using System;
-using David.BooksStore.Domain.Entities;
+﻿using David.BooksStore.Domain.Entities;
+using System;
 
 namespace David.BooksStore.DebugConsole
 {
@@ -20,12 +20,13 @@ namespace David.BooksStore.DebugConsole
         private static object CreateProduct()
         {
             int i = 1;
-            return new Product{
+            return new Product
+            {
                 Title = "Think in " + i,
-                        Author = "J",
-                        Price = 100 + i,
-                        Category = (i % 4).ToString(),
-                        Description = " " + i + " Great!"
+                Author = "J",
+                Price = 100 + i,
+                Category = (i % 4).ToString(),
+                Description = " " + i + " Great!"
 
             };
         }
