@@ -1,13 +1,9 @@
 namespace David.BooksStore.Domain.Entities
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.IO;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Web.Mvc;
 
     public class Product
     {
@@ -37,5 +33,16 @@ namespace David.BooksStore.Domain.Entities
         [Required]
         [StringLength(150, ErrorMessage = "Please enter a title of book")]
         public string Title { get; set; }
+
+        public override string ToString() => ToJSON();
+
+
+
+        public string ToJSON()
+        {
+
+            return JsonConvert.SerializeObject(this);
+
+        }
     }
 }
