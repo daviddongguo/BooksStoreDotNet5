@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace David.BooksStore.WebApp.Controllers
 {
-    public class ProductController : Controller
+    public class ProductsController : Controller
     {
         private readonly IProductsRepository _rep;
         private readonly int PAGE_SIZE = 5;
 
-        public ProductController(IProductsRepository rep)
+        public ProductsController(IProductsRepository rep)
         {
             _rep = rep;
         }
@@ -33,7 +33,7 @@ namespace David.BooksStore.WebApp.Controllers
         {
             ProductsListViewModel productsModel = new ProductsListViewModel
             {
-                // Filter the products 
+                // Filter the products
                 Products = _rep
                         .Products
                         .Where(p => category == null || p.Category == category)
@@ -41,7 +41,7 @@ namespace David.BooksStore.WebApp.Controllers
                         .Skip((currentPage - 1) * PAGE_SIZE)
                         .Take(PAGE_SIZE),
 
-                // 
+                //
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = currentPage,
