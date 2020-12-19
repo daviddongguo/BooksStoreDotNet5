@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using David.BooksStore.Domain.Abstract;
+using David.BooksStore.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using David.BooksStore.WebApp.Models;
-using David.BooksStore.Domain.Concrete;
-using David.BooksStore.Domain.Abstract;
+using System.Diagnostics;
+using System.Linq;
 
 namespace David.BooksStore.WebApp.Controllers
 {

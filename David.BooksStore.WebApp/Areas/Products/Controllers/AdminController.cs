@@ -41,13 +41,13 @@ namespace David.BooksStore.WebApp.Areas.Admin.Controllers
                     product.ImageMimeType = image.ContentType;
 
                     // Convert image to byte and save to database
-                    byte[] fileBytes  = null;
+                    byte[] fileBytes = null;
                     using var fileStream = image.OpenReadStream();
                     using var memoryStream = new MemoryStream();
                     fileStream.CopyTo(memoryStream);
-                    fileBytes  = memoryStream.ToArray();
+                    fileBytes = memoryStream.ToArray();
 
-                    product.ImageData = fileBytes ;
+                    product.ImageData = fileBytes;
                 }
 
                 _rep.SaveProduct(product);

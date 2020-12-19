@@ -1,9 +1,7 @@
 ﻿using David.BooksStore.Domain.Concrete;
 using David.BooksStore.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using System;
-using System.Configuration;
 
 namespace David.BooksStore.DebugConsole
 {
@@ -17,7 +15,7 @@ namespace David.BooksStore.DebugConsole
             //System.Console.WriteLine(p.ToString());
             //InsertData();
             PrintData(args[0]);
-            
+
 
             Console.ReadKey();
 
@@ -53,7 +51,7 @@ namespace David.BooksStore.DebugConsole
         //}
 
         private static Product CreateProduct(int i)
-        {            
+        {
             return new Product
             {
                 Title = "Think in " + i,
