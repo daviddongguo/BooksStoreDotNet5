@@ -45,7 +45,7 @@ namespace David.BooksStore.DebugConsole
 
         private static Product CreateProduct()
         {
-            int i = 1;
+            int i = 2;
             return new Product
             {
                 Title = "Think in " + i,
