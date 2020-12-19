@@ -2,6 +2,8 @@
 @using System.Reflection
 @using System
 
+@model David.BooksStore.WebApp.Models.ProductsListViewModel
+
 @{
     ViewBag.Title = "Products";
 }
@@ -10,7 +12,7 @@
 <div>
     <div class="container">
         @*<table class="table table-responsive">
-                <caption>@ViewBag.productsModel.ToString()</caption>
+                <caption>@Model.ToString()</caption>
                 <thead>
                     <tr>
                         <th>Title</th>
@@ -20,7 +22,7 @@
                         <th>Description</th>
                     </tr>
                 </thead>
-                @foreach (var product in ViewBag.productsModel.Products)
+                @foreach (var product in Model.Products)
                 {
                     <tbody>
                         <tr>
@@ -34,9 +36,9 @@
                 }
             </table>*@
         <div>
-            @foreach (var p in ViewBag.productsModel.Products)
+            @foreach (var p in Model.Products)
             {
-                <p>@ViewBag.ReturnUrl</p>
+                <partial name="_ProductSummary" model=p />
                 <p>@p.ToString()</p>
             }
         </div>
@@ -44,6 +46,21 @@
 
         <div>
             <p>pageLinks</p>
+            <div>
+                @for (int i = 1; i <= Model.PagingInfo.TotalPages; i++)
+                {
+                   if(i == Model.PagingInfo.CurrentPage)
+                   {
+                      <a href="/product/list?currentPage=@i&category=@Model.CurrentCategory" class="btn btn-primary selected">@i*</a>
+
+                    }
+                    else
+                    {
+                      <a href="/product/list?currentPage=@i&category=@Model.CurrentCategory" class="btn btn-default ">@i</a>
+                    }
+                }
+            </div>
+
         </div>
     </div>
 </div>

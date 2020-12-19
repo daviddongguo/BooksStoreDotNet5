@@ -36,3 +36,12 @@ WebApp:
 - public EFProductRepository(EFDbContext ctx){  _ctx = ctx; }
 - services.AddDbContext<EFDbContext>(x => x.UseMySQL(Configuration.GetConnectionString("MySqlConnection"),
        b => b.MigrationsAssembly("David.BooksStore.WebApp")));
+
+#### Use DI
+
+- public ProductController(IProductsRepository rep)
+        {
+            _rep = rep;
+        }
+
+- services.AddScoped<IProductsRepository, EFProductRepository>();
