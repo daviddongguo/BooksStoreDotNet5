@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace David.BooksStore.WebApp.Controllers
 {
     public class ProductController : Controller
-    {      
+    {
         private readonly IProductsRepository _rep;
         private readonly int PAGE_SIZE = 5;
 
@@ -24,7 +24,12 @@ namespace David.BooksStore.WebApp.Controllers
             return View();
         }
 
-        public IActionResult List(string category, int page = 1)
+        //public IActionResult OnGetPartial() => new PartialViewResult
+        //{
+        //    ViewName = "_ProductSummary",
+        //    ViewData = ViewData,
+        //};
+        public IActionResult List(string category, int currentPage = 1)
         {
             ProductsListViewModel productsModel = new ProductsListViewModel
             {
@@ -33,13 +38,13 @@ namespace David.BooksStore.WebApp.Controllers
                         .Products
                         .Where(p => category == null || p.Category == category)
                         .OrderBy(p => p.ProductId)
-                        .Skip((page - 1) * PAGE_SIZE)
+                        .Skip((currentPage - 1) * PAGE_SIZE)
                         .Take(PAGE_SIZE),
 
                 // 
                 PagingInfo = new PagingInfo
                 {
-                    CurrentPage = page,
+                    CurrentPage = currentPage,
                     ItemsPerPage = PAGE_SIZE,
                     // Get the products remaind
                     TotalItems = _rep
@@ -54,7 +59,7 @@ namespace David.BooksStore.WebApp.Controllers
             ViewBag.productsModel = productsModel;
             ViewBag.ReturnUrl = HttpContext.Request.Path + HttpContext.Request.QueryString;
 
-            return View(ViewBag);
+            return View(productsModel);
         }
 
 
