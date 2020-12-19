@@ -7,7 +7,12 @@ namespace David.BooksStore.Domain.Concrete
     public class EFProductRepository : IProductsRepository
     {
 
-        private EFDbContext _ctx = new EFDbContext();
+        private EFDbContext _ctx;
+
+        public EFProductRepository(EFDbContext ctx)
+        {
+            _ctx = ctx;
+        }
 
         public IEnumerable<Product> Products
         {
