@@ -10,13 +10,6 @@ namespace David.BooksStore.Domain.Concrete
 {
     public class EFDbContext : DbContext
     {
-        //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //  optionsBuilder.UseMySQL("server=bvakwjqxl1kivtlftlkl-mysql.services.clever-cloud.com;user id=uih9cosqpakteeln;pwd=cGaRGjCKajlUyz8fautM;persistsecurityinfo=True;database=bvakwjqxl1kivtlftlkl");
-        //}
-        public EFDbContext() : base()
-        {
-        }
         public EFDbContext(DbContextOptions<EFDbContext> options) : base(options)
         {
         }
