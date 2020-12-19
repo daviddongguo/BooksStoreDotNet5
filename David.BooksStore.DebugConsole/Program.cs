@@ -19,29 +19,29 @@ namespace David.BooksStore.DebugConsole
 
         }
 
-        private static void PrintData()
-        {
-            using var context = new EFDbContext();
-            var products = context.Products;
-            foreach (var p in products)
-            {
-                Console.WriteLine(p.ToString());
-            }
+        // private static void PrintData()
+        // {
+        //     using var context = new EFDbContext();
+        //     var products = context.Products;
+        //     foreach (var p in products)
+        //     {
+        //         Console.WriteLine(p.ToString());
+        //     }
 
-        }
-        private static void InsertData()
-        {
-            using var context = new EFDbContext();
-            // Creates the database if not exists
-            context.Database.EnsureCreated();
+        // }
+        // private static void InsertData()
+        // {
+        //     using var context = new EFDbContext();
+        //     // Creates the database if not exists
+        //     context.Database.EnsureCreated();
 
-            // Adds a product
-            var product = CreateProduct();
-            context.Products.Add(product);
+        //     // Adds a product
+        //     var product = CreateProduct();
+        //     context.Products.Add(product);
 
-            // Saves changes
-            context.SaveChanges();
-        }
+        //     // Saves changes
+        //     context.SaveChanges();
+        // }
 
         private static Product CreateProduct()
         {
