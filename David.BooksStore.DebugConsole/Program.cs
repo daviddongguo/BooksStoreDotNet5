@@ -12,8 +12,6 @@ namespace David.BooksStore.DebugConsole
 
             //var p = CreateProduct();
             //System.Console.WriteLine(p.ToString());
-            InsertData();
-            PrintData();
 
             Console.ReadKey();
 
