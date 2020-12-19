@@ -29,3 +29,10 @@ WebApp:
 
 - Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
 - Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.1" />
+
+#### Configure DBContext via AddDbContext
+
+- public EFDbContext(DbContextOptions<EFDbContext> options) : base(options){}
+- public EFProductRepository(EFDbContext ctx){  _ctx = ctx; }
+- services.AddDbContext<EFDbContext>(x => x.UseMySQL(Configuration.GetConnectionString("MySqlConnection"),
+       b => b.MigrationsAssembly("David.BooksStore.WebApp")));
