@@ -7,22 +7,25 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using David.BooksStore.WebApp.Models;
 using David.BooksStore.Domain.Concrete;
+using David.BooksStore.Domain.Abstract;
 
 namespace David.BooksStore.WebApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductsRepository _rep;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProductsRepository rep)
         {
             _logger = logger;
+            _rep = rep;
         }
 
         public IActionResult Index()
         {
-            using var context = new EFDbContext();
-            var product = context.Products.FirstOrDefault();
+            //using var context = new EFDbContext();
+            var product = _rep.Products.FirstOrDefault();
             return View(product);
         }
 
