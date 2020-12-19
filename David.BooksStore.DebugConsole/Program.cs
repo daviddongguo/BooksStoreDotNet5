@@ -1,4 +1,5 @@
-﻿using David.BooksStore.Domain.Entities;
+﻿using David.BooksStore.Domain.Concrete;
+using David.BooksStore.Domain.Entities;
 using System;
 
 namespace David.BooksStore.DebugConsole
@@ -9,15 +10,40 @@ namespace David.BooksStore.DebugConsole
         {
             Console.WriteLine("Hello World!");
 
-            var p = CreateProduct();
-
-            System.Console.WriteLine(p.ToString());
+            //var p = CreateProduct();
+            //System.Console.WriteLine(p.ToString());
+            InsertData();
+            PrintData();
 
             Console.ReadKey();
 
         }
 
-        private static object CreateProduct()
+        private static void PrintData()
+        {
+            using var context = new EFDbContext();
+            var products = context.Products;
+            foreach (var p in products)
+            {
+                Console.WriteLine(p.ToString());
+            }
+
+        }
+        private static void InsertData()
+        {
+            using var context = new EFDbContext();
+            // Creates the database if not exists
+            context.Database.EnsureCreated();
+
+            // Adds a product
+            var product = CreateProduct();
+            context.Products.Add(product);
+
+            // Saves changes
+            context.SaveChanges();
+        }
+
+        private static Product CreateProduct()
         {
             int i = 1;
             return new Product
