@@ -13,6 +13,6 @@ namespace David.BooksStore.Domain.Abstract
 
         void SaveProduct(Product product);
 
-        Product DeleteProduct(int productId);
+        Product DeleteProduct(long productId);
     }
 }

@@ -19,7 +19,7 @@ namespace David.BooksStore.Domain.Concrete
             get { return _ctx.Products; }
         }
 
-        public Product DeleteProduct(int productId)
+        public Product DeleteProduct(long productId)
         {
             Product dbProduct = _ctx.Products.Find(productId);
             if (dbProduct == null)
