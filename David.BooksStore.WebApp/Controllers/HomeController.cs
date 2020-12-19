@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using David.BooksStore.WebApp.Models;
+using David.BooksStore.Domain.Concrete;
 
 namespace David.BooksStore.WebApp.Controllers
 {
@@ -20,7 +21,9 @@ namespace David.BooksStore.WebApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            using var context = new EFDbContext();
+            var product = context.Products.FirstOrDefault();
+            return View(product);
         }
 
         public IActionResult Privacy()
