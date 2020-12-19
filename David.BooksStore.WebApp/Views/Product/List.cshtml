@@ -1,0 +1,49 @@
+﻿@using David.BooksStore.Domain.Entities
+@using System.Reflection
+@using System
+
+@{
+    ViewBag.Title = "Products";
+}
+
+
+<div>
+    <div class="container">
+        @*<table class="table table-responsive">
+                <caption>@ViewBag.productsModel.ToString()</caption>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                @foreach (var product in ViewBag.productsModel.Products)
+                {
+                    <tbody>
+                        <tr>
+                            <td>@product.Title</td>
+                            <td>@product.Author.ToString()</td>
+                            <td>@product.Price.ToString("c")</td>
+                            <td>@product.CategoryId.ToString()</td>
+                            <td>@product.Description.ToString()</td>
+                        </tr>
+                    </tbody>
+                }
+            </table>*@
+        <div>
+            @foreach (var p in ViewBag.productsModel.Products)
+            {
+                <p>@ViewBag.ReturnUrl</p>
+                <p>@p.ToString()</p>
+            }
+        </div>
+
+
+        <div>
+            <p>pageLinks</p>
+        </div>
+    </div>
+</div>
