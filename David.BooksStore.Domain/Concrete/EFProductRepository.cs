@@ -1,5 +1,6 @@
 ﻿using David.BooksStore.Domain.Abstract;
 using David.BooksStore.Domain.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace David.BooksStore.Domain.Concrete
@@ -11,7 +12,7 @@ namespace David.BooksStore.Domain.Concrete
 
         public EFProductRepository(EFDbContext ctx)
         {
-            _ctx = ctx;
+            _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
         }
 
         public IEnumerable<Product> Products
