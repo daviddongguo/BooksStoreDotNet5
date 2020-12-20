@@ -6,12 +6,12 @@ using System.Linq;
 
 namespace David.BooksStore.WebApp.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductController : Controller
     {
         private readonly IProductsRepository _rep;
         private readonly int PAGE_SIZE = 5;
 
-        public ProductsController(IProductsRepository rep)
+        public ProductController(IProductsRepository rep)
         {
             _rep = rep;
         }

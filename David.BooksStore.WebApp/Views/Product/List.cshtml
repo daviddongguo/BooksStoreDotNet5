@@ -5,7 +5,7 @@
 @model David.BooksStore.WebApp.Models.ProductsListViewModel
 
 @{
-    ViewBag.Title = "Products";
+    ViewBag.Title = "Product";
 }
 
 
@@ -23,11 +23,11 @@
                 {
                    if(i == Model.PagingInfo.CurrentPage)
                    {
-                      <a href="/products/list?currentPage=@i&category=@Model.CurrentCategory" class="btn btn-primary selected">@i*</a>
+                      <a href="/product/list?currentPage=@i&category=@Model.CurrentCategory" class="btn btn-primary selected">@i*</a>
                     }
                     else
                     {
-                      <a href="/products/list?currentPage=@i&category=@Model.CurrentCategory" class="btn btn-default ">@i</a>
+                      <a href="/product/list?currentPage=@i&category=@Model.CurrentCategory" class="btn btn-default ">@i</a>
                     }
                 }
         </div>

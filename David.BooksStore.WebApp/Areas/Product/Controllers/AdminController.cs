@@ -8,7 +8,7 @@ using System.Linq;
 namespace David.BooksStore.WebApp.Areas.Admin.Controllers
 {
     // [Authorize]
-    [Area("Products")]
+    [Area("Product")]
     public class AdminController : Controller
     {
         private readonly IProductsRepository _rep;
