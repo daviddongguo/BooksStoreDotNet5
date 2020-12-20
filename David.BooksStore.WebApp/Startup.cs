@@ -23,7 +23,8 @@ namespace David.BooksStore.WebApp
         {
             services.AddDbContext<EFDbContext>(x => x.UseMySQL(Configuration.GetConnectionString("MySqlConnection"),
        b => b.MigrationsAssembly("David.BooksStore.WebApp")));
-            services.AddScoped<IProductsRepository, EFProductRepository>();
+            // services.AddScoped<IProductsRepository, EFProductRepository>();
+            services.AddTransient<IProductsRepository, EFProductRepository>();
 
             services.AddControllersWithViews();
         }

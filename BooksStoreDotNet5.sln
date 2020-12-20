@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "David.BooksStore.DebugConsole", "David.BooksStore.DebugConsole\David.BooksStore.DebugConsole.csproj", "{2C9A3C01-ED5B-4ECE-AE15-D103F682D6D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "David.BooksStore.DebugConsole", "David.BooksStore.DebugConsole\David.BooksStore.DebugConsole.csproj", "{2C9A3C01-ED5B-4ECE-AE15-D103F682D6D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "David.BooksStore.Domain", "David.BooksStore.Domain\David.BooksStore.Domain.csproj", "{C0352C36-C2B1-4178-B936-27FC0EA9D664}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "David.BooksStore.Domain", "David.BooksStore.Domain\David.BooksStore.Domain.csproj", "{C0352C36-C2B1-4178-B936-27FC0EA9D664}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "David.BooksStore.WebApp", "David.BooksStore.WebApp\David.BooksStore.WebApp.csproj", "{6A75D37F-5102-4CA5-A49B-F3968CF86D04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "David.BooksStore.WebApp", "David.BooksStore.WebApp\David.BooksStore.WebApp.csproj", "{6A75D37F-5102-4CA5-A49B-F3968CF86D04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2C9A3C01-ED5B-4ECE-AE15-D103F682D6D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,5 +55,11 @@ Global
 		{6A75D37F-5102-4CA5-A49B-F3968CF86D04}.Release|x64.Build.0 = Release|Any CPU
 		{6A75D37F-5102-4CA5-A49B-F3968CF86D04}.Release|x86.ActiveCfg = Release|Any CPU
 		{6A75D37F-5102-4CA5-A49B-F3968CF86D04}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C53783A-5932-4EE1-9D02-4A7FFBEF694E}
 	EndGlobalSection
 EndGlobal
