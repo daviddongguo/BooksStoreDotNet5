@@ -11,11 +11,11 @@ namespace David.BooksStore.DebugConsole
         {
             Console.WriteLine("Hello World!");
 
-            //var p = CreateProduct();
-            //System.Console.WriteLine(p.ToString());
+            var p = CreateProduct(111);
+            System.Console.WriteLine(p.ToJSON());
+            System.Console.WriteLine(p.ToString());
             //InsertData();
-            PrintData(args[0]);
-
+            //PrintData(args[0]);
 
             Console.ReadKey();
 

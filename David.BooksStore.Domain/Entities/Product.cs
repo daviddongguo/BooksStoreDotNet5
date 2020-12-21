@@ -1,9 +1,9 @@
 namespace David.BooksStore.Domain.Entities
 {
     using Microsoft.AspNetCore.Mvc;
-    using Newtonsoft.Json;
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.Text.Json;
 
     public class Product
     {
@@ -34,15 +34,29 @@ namespace David.BooksStore.Domain.Entities
         [StringLength(150, ErrorMessage = "Please enter a title of book")]
         public string Title { get; set; }
 
-        public override string ToString() => ToJSON();
+        public override string ToString() {
+
+            return PrettyJson(ToJSON());
+        }
+
+        private static string PrettyJson(string unPrettyJson)
+        {
+            var options = new JsonSerializerOptions()
+            {
+                WriteIndented = true
+            };
+
+            var jsonElement = JsonSerializer.Deserialize<JsonElement>(unPrettyJson);
+
+            return JsonSerializer.Serialize(jsonElement, options);
+        }
 
 
 
         public string ToJSON()
         {
-
-            return JsonConvert.SerializeObject(this);
-
+            
+            return JsonSerializer.Serialize(this);
         }
     }
 }
