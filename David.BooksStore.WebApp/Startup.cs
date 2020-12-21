@@ -23,8 +23,7 @@ namespace David.BooksStore.WebApp
         {
             services.AddDbContext<EFDbContext>(x => x.UseMySQL(Configuration.GetConnectionString("MySqlConnection"),
        b => b.MigrationsAssembly("David.BooksStore.WebApp")));
-            // services.AddScoped<IProductsRepository, EFProductRepository>();
-            services.AddTransient<IProductsRepository, EFProductRepository>();
+            services.AddScoped<IProductsRepository, EFProductRepository>();
 
             services.AddControllersWithViews();
         }
@@ -56,7 +55,7 @@ namespace David.BooksStore.WebApp
                     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Product}/{action=List}/{id?}");
             });
         }
     }
