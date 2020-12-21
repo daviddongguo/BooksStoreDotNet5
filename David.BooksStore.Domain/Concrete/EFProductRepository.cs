@@ -1,7 +1,10 @@
 ﻿using David.BooksStore.Domain.Abstract;
 using David.BooksStore.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace David.BooksStore.Domain.Concrete
 {
@@ -20,6 +23,10 @@ namespace David.BooksStore.Domain.Concrete
             get { return _ctx.Products; }
         }
 
+        public async Task<IQueryable<Product>> GetAllProducts() 
+        {
+            return (await _ctx.Products.ToListAsync()).AsQueryable();
+        }
         public Product DeleteProduct(long productId)
         {
             Product dbProduct = _ctx.Products.Find(productId);
